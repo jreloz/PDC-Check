@@ -75,8 +75,26 @@
   <ItemGroup>
     <Compile Include="Classes\Customize.vb" />
     <Compile Include="Classes\ReportModule .vb" />
+    <Compile Include="CRForms\PNB.vb">
+      <DependentUpon>PNB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRForms\GMBank.vb">
+      <DependentUpon>GMBank.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CRForms\BPI.vb">
       <DependentUpon>BPI.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRForms\BDO.vb">
+      <DependentUpon>BDO.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -141,9 +159,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CRForms\PNB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PNB.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRForms\GMBank.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>GMBank.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRForms\BPI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BPI.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRForms\BDO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BDO.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRForms\Landbank.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

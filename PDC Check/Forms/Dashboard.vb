@@ -97,8 +97,8 @@ Public Class Dashboard
             Case "Bank of Philippine Islands"
                 ReportDoc = New BPI
 
-            Case 7
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+            Case "Philippine National Bank"
+                ReportDoc = New PNB
 
             Case 8
                 MessageBox.Show(CmbBankName.SelectedItem.ToString())
