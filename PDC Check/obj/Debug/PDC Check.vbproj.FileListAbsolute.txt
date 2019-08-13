@@ -8,4 +8,4 @@ c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\
 c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.exe
 c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.xml
 c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.pdb
-C:\Users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.vbprojResolveAssemblyReference.cache
+C:\Users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC_Check.Dashboard.resources

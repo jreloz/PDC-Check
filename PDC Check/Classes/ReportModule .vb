@@ -3,56 +3,61 @@ Imports System.Data.SqlClient
 Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 Imports System.Drawing.Printing
+Imports System.Reflection
+
 
 Module ReportModule
     Public ReportDoc As ReportDocument
     Public Month As Integer
 
-    Public Function ErrorMsg(ByVal ReportError As String) As String
-
-        MessageBox.Show(ReportError, "ONE CLICK PRINT", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Return ReportError
-
-    End Function
-
-    Public Function InfoMsg(ByVal ReportInfo As String) As String
-
-        MessageBox.Show(ReportInfo, "ONE CLICK PRINT", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        Return ReportInfo
-
-    End Function
 
     Public Sub PrintDocument()
 
-        Form1.BtnPrint.Text = "Printing..."
-        Form1.BtnPrint.Enabled = False
+        Dim SWriter As System.IO.StreamWriter
+        Dim AppDir As String
 
+        Dim PrntCount As String = Dashboard.TxtNoOfChecks.Text
+        Dim DatePrinted As String = Dashboard.DtDate.Value.ToShortDateString()
+        Dim Amount As String = Dashboard.TxtAmount.Text
+        Dim BankName As String = Dashboard.CmbBankName.Text
+        Dim Payee As String = Dashboard.CmbPayeeName.Text
 
-        For x As Integer = 1 To Val(Form1.TxtNoOfChecks.Text)
-            ReportDoc.SetParameterValue("PrmPayee", Form1.CmbPayeeName.Text)
-            ReportDoc.SetParameterValue("PrmAmount", Val(Form1.TxtAmount.Text))
-            ReportDoc.SetParameterValue("PrmDate", Form1.DtDate.Value)
-            ReportDoc.SetParameterValue("PrmPTTOO", Form1.TxtNoOfChecks.Text)
+        Dim SaveData As String = "## " + PrntCount + "; " + BankName + "; " + Amount + "; " + Payee + "; " + DatePrinted + " ##"
 
-            If Form1.CmbPrinters.Text <> "" Then
-                ReportDoc.PrintOptions.PrinterName = Form1.CmbPrinters.Text
+        Dashboard.BtnPrint.Text = "Printing..."
+        Dashboard.BtnPrint.Enabled = False
+
+        AppDir = System.Reflection.Assembly.GetExecutingAssembly.Location
+
+        SWriter = My.Computer.FileSystem.OpenTextFileWriter(AppDir + "PrintLog.txt", True)
+        SWriter.WriteLine(SaveData)
+        SWriter.Close()
+
+        For x As Integer = 1 To Val(Dashboard.TxtNoOfChecks.Text)
+            ReportDoc.SetParameterValue("PrmPayee", Dashboard.CmbPayeeName.Text)
+            ReportDoc.SetParameterValue("PrmAmount", Val(Dashboard.TxtAmount.Text))
+            ReportDoc.SetParameterValue("PrmDate", Dashboard.DtDate.Value)
+            ReportDoc.SetParameterValue("PrmPTTOO", Dashboard.CmbPayeeName.Text)
+
+            If Dashboard.CmbPrinters.Text <> "" Then
+                ReportDoc.PrintOptions.PrinterName = Dashboard.CmbPrinters.Text
                 ReportDoc.PrintToPrinter(1, True, 1, 1)
             End If
 
-            If x <> Val(Form1.TxtNoOfChecks.Text) Then
-                Form1.DtDate.Value = Form1.DtDate.Value.Date.AddMonths(1)
+            If x <> Val(Dashboard.TxtNoOfChecks.Text) Then
+                Dashboard.DtDate.Value = Dashboard.DtDate.Value.Date.AddMonths(1)
             End If
 
-            If x <> Val(Form1.TxtAmount.Text) Then
-                If Form1.DtDate.Value.Year = 12 Then
-                    Form1.DtDate.Value = Form1.DtDate.Value.Date.AddYears(1)
+            If x <> Val(Dashboard.TxtAmount.Text) Then
+                If Dashboard.DtDate.Value.Year = 12 Then
+                    Dashboard.DtDate.Value = Dashboard.DtDate.Value.Date.AddYears(1)
                 End If
             End If
 
         Next
 
-        Form1.BtnPrint.Text = "Printing"
-        Form1.BtnPrint.Enabled = True
+        Dashboard.BtnPrint.Text = "Print"
+        Dashboard.BtnPrint.Enabled = True
 
         Exit Sub
 

@@ -14,6 +14,6 @@ Public Class Customize
 
     <DllImport("User32")>
     Public Shared Function ReleaseCapture() As Boolean
-
+       
     End Function
 End Class
