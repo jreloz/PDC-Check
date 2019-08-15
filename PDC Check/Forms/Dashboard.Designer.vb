@@ -250,7 +250,7 @@ Partial Class Dashboard
         Me.CmbBankName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CmbBankName.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbBankName.FormattingEnabled = True
-        Me.CmbBankName.Items.AddRange(New Object() {"Asia United Bank", "Bank of Commerce", "Bank of Philippine Islands", "China Bank", "East West Bank", "Metrobank", "PS Bank", "RCBC", "UCPB", "Philippine National Bank", "Producers Savings Bank Corporation", "Land Bank", "GM Bank", "BDO", "Rural Bank of Baguio", "Philippine Business Bank", "Security Bank", "Union Bank", "FICO Bank", "Rural Bank of Cauayan Inc", "Equicom", "Maybank", "Bank of Makati"})
+        Me.CmbBankName.Items.AddRange(New Object() {"Metrobank", "Rural Bank of Baguio", "UCPB", "BDO", "Land Bank", "East West Bank", "Bank of Philippine Islands", "Philippine National Bank"})
         Me.CmbBankName.Location = New System.Drawing.Point(190, 90)
         Me.CmbBankName.Name = "CmbBankName"
         Me.CmbBankName.Size = New System.Drawing.Size(364, 31)
@@ -308,6 +308,7 @@ Partial Class Dashboard
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.NavPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"

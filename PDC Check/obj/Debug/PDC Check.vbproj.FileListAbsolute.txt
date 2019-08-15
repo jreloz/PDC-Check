@@ -9,3 +9,8 @@ c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\
 c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.xml
 c:\users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.pdb
 C:\Users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC_Check.Dashboard.resources
+C:\Users\jerwen.reloz\documents\visual studio 2013\Projects\PDC Check\PDC Check\obj\Debug\PDC Check.vbprojResolveAssemblyReference.cache
+C:\Users\jerwen.reloz\Documents\Visual Studio 2013\Projects\PDC Check - LX-310\PDC Check\bin\Debug\PDC Check.exe.config
+C:\Users\jerwen.reloz\Documents\Visual Studio 2013\Projects\PDC Check - LX-310\PDC Check\obj\Debug\PDC Check.exe
+C:\Users\jerwen.reloz\Documents\Visual Studio 2013\Projects\PDC Check - LX-310\PDC Check\obj\Debug\PDC Check.xml
+C:\Users\jerwen.reloz\Documents\Visual Studio 2013\Projects\PDC Check - LX-310\PDC Check\obj\Debug\PDC Check.pdb

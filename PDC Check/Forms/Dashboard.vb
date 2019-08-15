@@ -1,11 +1,9 @@
-﻿Imports PDC_Check.Customize
+﻿Imports PDC_Check.InteropServices
 Imports System.Threading
 
 
 
 Public Class Dashboard
-
-    Dim Customize As New Customize
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -21,16 +19,18 @@ Public Class Dashboard
     End Sub
 
     Private Sub NavPanel_MouseDown(sender As Object, e As MouseEventArgs) Handles NavPanel.MouseDown
+
         If (e.Button = MouseButtons.Left) Then
-            Customize.ReleaseCapture()
-            Customize.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
+            InteropServices.ReleaseCapture()
+            InteropServices.SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
+
     End Sub
 
     Private Sub LoadPrinters()
 
         For Each InstalledPrinters In System.Drawing.Printing.PrinterSettings.InstalledPrinters
-                CmbPrinters.Items.Add(InstalledPrinters)
+            CmbPrinters.Items.Add(InstalledPrinters)
         Next InstalledPrinters
 
     End Sub
@@ -42,12 +42,9 @@ Public Class Dashboard
             MessageBox.Show("One or more input field(s) are invalid!", "Check Printer", MessageBoxButtons.OK, MessageBoxIcon.Information)
         ElseIf CmbPrinters.Text = "" Then
             MessageBox.Show("No printer selected!", "Check Printer", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
         Else
-
-            Call ProcessData()
+            Call ProcessCheck()
             Call PrintDocument()
-
         End If
 
     End Sub
@@ -72,7 +69,7 @@ Public Class Dashboard
         End If
     End Sub
 
-    Private Sub ProcessData()
+    Private Sub ProcessCheck()
 
         Select Case CmbBankName.Text
 
@@ -86,7 +83,7 @@ Public Class Dashboard
                 ReportDoc = New UCPB
 
             Case "BDO"
-                'ReportDoc = New BDO
+                ReportDoc = New BDO
 
             Case "Land Bank"
                 ReportDoc = New Landbank
@@ -100,55 +97,58 @@ Public Class Dashboard
             Case "Philippine National Bank"
                 ReportDoc = New PNB
 
-            Case 8
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 8
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 9
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 9
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 10
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 10
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 11
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 11
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 12
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 12
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 13
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 13
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 14
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 14
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 15
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 15
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 16
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 16
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 17
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 17
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 18
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 18
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 19
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 19
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 20
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 20
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 21
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 21
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
-            Case 22
-                MessageBox.Show(CmbBankName.SelectedItem.ToString())
+                'Case 22
+                '    MessageBox.Show(CmbBankName.SelectedItem.ToString())
 
             Case Else
-                'MessageBox.Show("Select Bank name!", "Check Printer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Bank template is currently not available, Contact system administrator", "Check Printer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
         End Select
     End Sub
 
-   
+
+
+
 End Class
